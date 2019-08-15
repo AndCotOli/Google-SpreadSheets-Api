@@ -1,0 +1,16 @@
+{
+  "name": "google-spreadsheets-api",
+  "version": "1.0.0",
+  "description": "A simple app for testing Google Sheets Api v4",
+  "main": "index.js",
+  "repository": "https://github.com/AndCotOli/Google-SpreadSheets-Api.git",
+  "author": "Andreu Cotanda Oliver <cotoli23@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "googleapis": "^42.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
