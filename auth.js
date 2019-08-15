@@ -6,10 +6,10 @@ const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 const PATH = "token.json";
 
 function getToken() {
-  fs.readFile("secret.json", (err, content) => {
+  return fs.readFile("secret.json", (err, content) => {
     if (err) return console.error(`Error loading the secrets!\n${err}`);
 
-    authorize(JSON.parse(content));
+    return authorize(JSON.parse(content));
   });
 }
 
@@ -21,7 +21,7 @@ function authorize(credentials) {
     redirect_uris[0]
   );
 
-  fs.readFile(PATH, (err, token) => {
+  return fs.readFile(PATH, (err, token) => {
     if (err) return getNewToken(oAuthClient);
     oAuthClient.setCredentials(JSON.parse(token));
     return oAuthClient;
@@ -41,9 +41,9 @@ function getNewToken(oAuthClient) {
     output: process.stdout
   });
 
-  rl.question("Enter the code here: ", code => {
+  return rl.question("Enter the code here: ", code => {
     rl.close();
-    oAuthClient.getToken(code, (err, token) => {
+    return oAuthClient.getToken(code, (err, token) => {
       if (err)
         return console.error(
           `An error ocurred while getting the Auth code\n${err}`
