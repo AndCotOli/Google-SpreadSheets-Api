@@ -59,6 +59,8 @@ typings/
 
 # next.js build output
 .next
- 
+
+# Specifically added for this project
 secret.json
 token.json
+config.json
